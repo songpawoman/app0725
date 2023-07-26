@@ -178,6 +178,8 @@ public class DiaryMain extends JFrame{
 		cal.set(Calendar.MONTH, mm+1); //조작
 		printTitle();//제목출력
 		printNum();//날짜출력
+		//기존 셀에 들어잇는 아이콘 삭제 
+		
 	}
 	
 	//해당 월의 시작 요일 구하기 
@@ -218,8 +220,13 @@ public class DiaryMain extends JFrame{
 		for(int a=0;a<numCells.length; a++) {//층수
 			for(int i=0;i<numCells[a].length;i++) {
 				numCells[a][i].setTitle("");
+				
+				//아이콘 삭제하기
+				numCells[a][i].iconBox.removeAll();
+				
 			}
 		}
+		
 		
 		
 		int startDay=getStartDayOfWeek(); //해당 월이 무슨 요일부터 시작하는지 그 값을 얻기
