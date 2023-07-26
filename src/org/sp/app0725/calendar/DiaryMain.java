@@ -39,6 +39,10 @@ public class DiaryMain extends JFrame{
 	//날짜 셀 
 	NumCell[][] numCells=new NumCell[6][7]; 
 	
+	//팝업창
+	Popup popup;
+	
+	
 	public DiaryMain() {
 		//UI 생성하기
 		p_north = new JPanel();
@@ -57,6 +61,8 @@ public class DiaryMain extends JFrame{
 		//탭메뉴 처리 
 		tab=new TabMenu[4];
 		thread = new Thread[4];
+		
+		
 		
 		for(int i=0;i<tab.length;i++) {
 			tab[i] = new TabMenu(tabColor[i], -95, 30+(i*71), 100, 70);
@@ -103,6 +109,10 @@ public class DiaryMain extends JFrame{
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
+
+		//팝업창 생성 및 부착 
+		popup = new Popup();
+		
 		
 		//버튼과 리스너 연결 
 		//내부익명클래스마저도 더욱 줄여서 코드 작성하고 싶다면??
